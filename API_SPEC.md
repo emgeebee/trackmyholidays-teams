@@ -10,11 +10,13 @@ https://api.trackmyholidays.com/api
 
 ## Authentication
 
-All endpoints require Google OAuth authentication. The access token should be included in the Authorization header:
+All endpoints require Google OAuth authentication or a long-lived token from the trackmyholidays API. The access token should be included in the Authorization header:
 
 ```
-Authorization: Bearer <access_token>
+Authorization: Bearer <google-id-token-or-long-lived-token>
 ```
+
+The user ID is extracted from the token by the existing `authFunc` authorizer and available as `event.requestContext.authorizer.uid` in Lambda handlers.
 
 ## Endpoints
 
