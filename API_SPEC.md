@@ -2,10 +2,22 @@
 
 This document outlines the API endpoints needed in the trackmyholidays backend to support the team management functionality.
 
+> **See also:** `TEAM_API_IMPLEMENTATION.md` for detailed implementation guidance specific to the existing serverless API structure.
+
+## API Repository
+
+https://github.com/emgeebee/trackmyholidays-api
+
 ## Base URL
 
+**Local Development:**
 ```
-https://api.trackmyholidays.com/api
+http://localhost:3001
+```
+
+**Production:**
+```
+https://1q1v3hm1n2.execute-api.us-west-2.amazonaws.com/prod
 ```
 
 ## Authentication
