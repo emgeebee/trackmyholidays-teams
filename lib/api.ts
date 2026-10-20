@@ -1,4 +1,4 @@
-import { TeamHolidaysResponse } from './types';
+import { TeamHolidaysResponse, TeamInvite } from './types';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.trackmyholidays.com';
 
@@ -65,6 +65,14 @@ export const api = {
     delete: (teamId: string) =>
       fetchWithAuth(`${API_BASE_URL}/api/teams/${teamId}`, {
         method: 'DELETE',
+      }),
+    
+    getPendingInvites: (): Promise<{ invites: TeamInvite[] }> =>
+      fetchWithAuth(`${API_BASE_URL}/api/teams/invites/pending`),
+    
+    acceptInvite: (inviteId: string) =>
+      fetchWithAuth(`${API_BASE_URL}/api/teams/invites/${inviteId}/accept`, {
+        method: 'POST',
       }),
   },
 };

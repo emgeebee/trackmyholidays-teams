@@ -7,6 +7,7 @@ import { useAuth } from '@/lib/auth-context';
 import { Button } from '@/components/ui/button';
 import { TeamManagement } from '@/components/team-management';
 import { HolidayGantt } from '@/components/holiday-gantt';
+import { PendingInvites } from '@/components/pending-invites';
 import { api } from '@/lib/api';
 import { Team, TeamMember, Holiday } from '@/lib/types';
 
@@ -205,6 +206,8 @@ export default function HomeContent() {
 
       <main className="flex-1 bg-gray-50 dark:bg-gray-950">
         <div className="container mx-auto px-4 py-8">
+          <PendingInvites onInviteAccepted={loadData} />
+          
           {isLoadingData ? (
             <div className="text-center py-12">
               <div className="text-lg">Loading data...</div>
