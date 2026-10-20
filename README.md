@@ -69,6 +69,8 @@ Key endpoints needed:
 - `GET /api/teams` - List all teams
 - `GET /api/teams/holidays` - Get team holidays (with filtering)
 - `POST /api/teams/invite` - Invite team members
+- `GET /api/teams/invites/pending` - Get pending invitations
+- `POST /api/teams/invites/{inviteId}/accept` - Accept team invitations
 - `POST /api/teams` - Create teams
 - `DELETE /api/teams/:id/members/:memberId` - Remove members
 
@@ -108,6 +110,7 @@ The gantt chart displays:
 Features:
 - Create root teams and nested sub-teams
 - Invite members via email
+- View and accept pending invitations
 - Assign roles (admin/member)
 - Add members to multiple teams
 - Remove members from teams
@@ -181,7 +184,8 @@ npx tsc --noEmit
 ├── components/
 │   ├── ui/               # Reusable UI components
 │   ├── team-management.tsx
-│   └── holiday-gantt.tsx
+│   ├── holiday-gantt.tsx
+│   └── pending-invites.tsx
 ├── lib/
 │   ├── types.ts          # TypeScript type definitions
 │   ├── auth-context.tsx  # Authentication context

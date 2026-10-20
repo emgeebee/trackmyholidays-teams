@@ -8,6 +8,7 @@ Now that you have both the frontend and the API specification, here's your step-
 - ✅ Full Next.js 16 application with TypeScript
 - ✅ Google OAuth authentication
 - ✅ Team management UI
+- ✅ Pending invitations UI (view and accept)
 - ✅ Holiday gantt chart view
 - ✅ GitHub Pages deployment workflow
 - ✅ All documentation
@@ -207,6 +208,8 @@ git push
 - [ ] Can sign in with Google
 - [ ] Can create a team
 - [ ] Can invite a member (email sent if configured)
+- [ ] Can view pending invitations
+- [ ] Can accept invitations
 - [ ] Can create sub-teams
 - [ ] Can remove members
 - [ ] Can delete teams
@@ -219,6 +222,7 @@ git push
 - [ ] All CRUD operations work
 - [ ] Data persists correctly
 - [ ] Invitations work
+- [ ] Invitation acceptance works
 - [ ] Real holidays display correctly
 - [ ] Bank holidays show in gantt chart
 - [ ] Mobile responsive

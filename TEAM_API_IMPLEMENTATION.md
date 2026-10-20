@@ -162,6 +162,8 @@ teams/
 ├── getMembers.js         # GET /api/teams/{id}/members
 ├── removeMember.js       # DELETE /api/teams/{id}/members/{memberId}
 ├── invite.js             # POST /api/teams/invite
+├── getPendingInvites.js  # GET /api/teams/invites/pending
+├── acceptInvite.js       # POST /api/teams/invites/{inviteId}/accept
 └── getHolidays.js        # GET /api/teams/holidays (main endpoint)
 ```
 
@@ -230,6 +232,24 @@ teamsInvite:
   events:
     - http:
         path: api/teams/invite
+        method: post
+        cors: ${self:custom.cors}
+        authorizer: ${self:custom.authorizers.auth}
+
+teamsGetPendingInvites:
+  handler: teams/getPendingInvites.getPendingInvites
+  events:
+    - http:
+        path: api/teams/invites/pending
+        method: get
+        cors: ${self:custom.cors}
+        authorizer: ${self:custom.authorizers.auth}
+
+teamsAcceptInvite:
+  handler: teams/acceptInvite.acceptInvite
+  events:
+    - http:
+        path: api/teams/invites/{inviteId}/accept
         method: post
         cors: ${self:custom.cors}
         authorizer: ${self:custom.authorizers.auth}

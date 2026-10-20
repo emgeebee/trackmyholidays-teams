@@ -166,7 +166,54 @@ Removes a member from a team. Only admins can perform this action.
 }
 ```
 
-### 6. Create Team
+### 6. Get Pending Invitations
+
+```
+GET /teams/invites/pending
+```
+
+Returns all pending team invitations for the authenticated user.
+
+**Response:**
+```json
+{
+  "invites": [
+    {
+      "id": "string",
+      "email": "string",
+      "teamIds": ["string"],
+      "role": "admin | member",
+      "invitedBy": "string",
+      "status": "pending",
+      "createdAt": "ISO 8601 date string",
+      "expiresAt": "ISO 8601 date string"
+    }
+  ]
+}
+```
+
+### 7. Accept Team Invitation
+
+```
+POST /teams/invites/:inviteId/accept
+```
+
+Accepts a team invitation and adds the authenticated user to the specified teams.
+
+**Response:**
+```json
+{
+  "success": true,
+  "memberships": [
+    {
+      "teamId": "string",
+      "role": "admin | member"
+    }
+  ]
+}
+```
+
+### 8. Create Team
 
 ```
 POST /teams
@@ -194,7 +241,7 @@ Creates a new team or sub-team.
 }
 ```
 
-### 7. Update Team
+### 9. Update Team
 
 ```
 PATCH /teams/:teamId
@@ -221,7 +268,7 @@ Updates team information.
 }
 ```
 
-### 8. Delete Team
+### 10. Delete Team
 
 ```
 DELETE /teams/:teamId

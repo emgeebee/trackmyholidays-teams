@@ -41,3 +41,14 @@ export interface InviteRequest {
   teamIds: string[];
   role: 'admin' | 'member';
 }
+
+export interface TeamInvite {
+  id: string;
+  email: string;
+  teamIds: string[];
+  role: 'admin' | 'member';
+  invitedBy: string;
+  status: 'pending' | 'accepted' | 'expired';
+  createdAt: string;
+  expiresAt: string;
+}
